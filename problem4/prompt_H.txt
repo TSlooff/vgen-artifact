@@ -1,0 +1,8 @@
+// This module implements the g function of the quark hash
+module g(input [0:67] Y, output daout);
+// Inputs:
+// Y: 68-bit value of Y
+// Outputs:
+// daout: 1-bit output 
+// The output of the module is a function of the addition and multiplication of bits 0, 7, 15, 16, 20, 30, 35, 37, 42, 49, 51, 54, 58 of Y: Y0 +Y7 +Y16 +Y20 +Y30 +Y35 +Y37 +Y42 +Y49 +Y51 +Y54 +Y54Y58 + Y35Y37 + Y7Y15 + Y42Y51Y54 + Y20Y30Y35 +Y7Y30Y42Y58 + Y35Y37Y51Y54 + Y15Y20Y54Y58 +Y37Y42Y51Y54Y58 + Y7Y15Y20Y30Y35 + Y20Y30Y35Y37Y42Y51
+// i.e.: assign daout = Y[0] + Y[7] + Y[16] + Y[20] + Y[30] + Y[35] + Y[37] + Y[42] + Y[49] + Y[51] + Y[54] + Y[54]*Y[58] + Y[35]*Y[37] + Y[7]*Y[15] + Y[42]*Y[51]*Y[54] + Y[20]*Y[30]*Y[35] + Y[7]*Y[30]*Y[42]*Y[58] + Y[35]*Y[37]*Y[51]*Y[54] + Y[15]*Y[20]*Y[54]*Y[58] + Y[37]*Y[42]*Y[51]*Y[54]*Y[58] + Y[7]*Y[15]*Y[20]*Y[30]*Y[35] + Y[20]*Y[30]*Y[35]*Y[37]*Y[42]*Y[51];

@@ -1,0 +1,6 @@
+// This module implements the AES Keyschedule function
+module Keyschedule(
+    input [127:0] Inp,
+    input [7:0] RC,   
+    output [127:0] Oup
+    ); 

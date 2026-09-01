@@ -1,0 +1,6 @@
+// This module implements the Present Keyschedule
+module keyschedule(
+    input [79:0] In,
+    input [4:0] RC,
+    output [79:0] Oup
+    ); 

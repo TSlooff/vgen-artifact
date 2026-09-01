@@ -1,0 +1,18 @@
+// This module implements the AES Mixcolumn layer
+ module Mixcolumn(
+    input [127:0] Inp,
+    output [127:0] Oup
+    );  
+// Inp is the 128-bit input vector
+// Oup is the 128-bit output of the mixcolumn layer
+// The Inp signal is treated as a 4 * 4 byte-matrix and each column of this matrix is multiplied with the MDS matrix M over the AES field 
+// M = [2 3 1 1]
+//     [1 2 3 1]
+//     [1 1 2 3]
+//     [3 1 1 2]  
+// For each 32 bit column i.e. x[31:0] = In[32*i+31: In 32*i], for i=0,1,2,3
+// y[31:24] =  gmul2(x[31:24]) ^ gmul3(x[23:16])  ^       x[15:8]   ^       x[7:0]
+// y[23:16] =       (x[31:24]) ^ gmul2(x[23:16])  ^ gmul3(x[15:8])  ^       x[7:0]
+// y[15: 8] =       (x[31:24]) ^      (x[23:16])  ^ gmul2(x[15:8])  ^ gmul3(x[7:0])
+// y[ 7: 0] =  gmul3(x[31:24]) ^      (x[23:16])  ^       x[15:8]   ^ gmul2(x[7:0])
+// Oup[32*i+31: In 32*i]=y[31:0], for i=0,1,2,3

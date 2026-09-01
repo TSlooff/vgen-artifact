@@ -1,0 +1,5 @@
+// This module implements the multiplication by 3 in the AES finite field
+module gmul3(
+    input  [7:0] In,
+    output [7:0] S
+    ); 

@@ -1,0 +1,8 @@
+// This module implements the p function of the quark hash
+module p(input [0:9] L, output daout);
+// Inputs:
+// L: 10-bit value of L
+// Outputs:
+// daout: 1-bit output 
+// The output of the module is a function of the addition of bits 0, 3 of L: L0 + L3
+// i.e.: assign daout = L[0] + L[3];

@@ -1,0 +1,14 @@
+// This module implements the last column operation in aes keyschedule
+module lcol(
+    input  [31:0] In,
+    input  [7:0] RC,
+    output [31:0] S
+    ); 
+// In is the 32-bit input vector which is the last column in the AES key-state 
+// RC is the 8-bit round constant
+// S is the  32-bit output vector of the final column non-linear operation in the AES key-schedule
+// we left-rotate In by 8 bits, apply AES S-box on each of the bytes and then add the RC to the most significant byte 
+// 1) A = In <<< 8
+// 2) B[8*i+7:8*i] = Sbox[A[8*i+7:8*i]] for i=0,1,2,3
+// 3) S[31:24]=B[31:24]^RC
+// 4) S[23:0]= B[23:0]

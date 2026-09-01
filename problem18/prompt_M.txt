@@ -1,0 +1,14 @@
+// This module implements the AES Keyschedule function
+module Keyschedule(
+    input [127:0] Inp,
+    input [7:0] RC,
+    output [127:0] Oup
+    ); 
+// Inp is the 128-bit input to the Keyschedule function
+// RC is the 8-bit round constant
+// Oup is the 128-bit output of the Keyschedule function
+// First the last (3rd) column and RC is passd through the non-linear lcol module to give A
+// A is added to the 0th column to give B which is the 0th column of Oup
+// B is added to the 1st column to give C which is the 1st column of Oup
+// C is added to the 2nd column to give D which is the 2nd column of Oup
+// D is added to the 2nd column to give E which is the 3rd column of Oup

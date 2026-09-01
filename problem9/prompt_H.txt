@@ -1,0 +1,15 @@
+// This module implements the Present Keyschedule
+module keyschedule(
+    input [79:0] In,
+    input [4:0] RC,
+    output [79:0] Oup
+    ); 
+// In is the 80-bit input to the module
+// RC is the 5-bit round constant
+// Oup is the 80-bit output 
+// First Inp is rotated left by 61 bits, then bits [79:76] of the rotated vector is passed through the S-box and bits [19:15] is xored with RC, the result is the output Oup of this module
+// 1) R = Inp <<< 61 
+// 2) Oup[79:76] = Sbox[ R[79:76]]
+// 3) Oup[19:15] = R[19:15] ^ RC
+// 4) Oup [75:20] = R[75:20]
+// 5) Oup [14:0] = R[14:0] 

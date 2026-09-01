@@ -1,0 +1,13 @@
+module quark(input clk, input reset, input [0:135] s, output [0:135]daout);
+// Inputs:
+// clk: clock
+// reset: reset
+// s: 136-bit value of s to perform permutation on
+// Outputs:
+// daout: 136-bit output 
+// This module implements the quark hash permutation
+// Uses the modules p, f, g, h which are defined as:
+// module p(input [0:9] L, output daout);
+// module f(input [0:67] X, output daout);
+// module g(input [0:67] Y, output daout);
+// module h(input [0:67] X, input [0:67] Y, input [0:9] L, output daout);

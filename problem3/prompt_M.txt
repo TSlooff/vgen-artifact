@@ -1,0 +1,7 @@
+// This module implements the f function of the quark hash
+module f(input [0:67] X, output daout);
+// Inputs:
+// X: 68-bit value of X
+// Outputs:
+// daout: 1-bit output 
+// The output of the module is a function of the addition and multiplication of bits 0, 9, 14, 15, 21, 28, 33, 37, 45, 50, 52, 55, 59 of X: X0 +X9 +X14 +X21 +X28 +X33 +X37 +X45 +X50 +X52 +X55 +X55X59 + X33X37 + X9X15 + X45X52X55 + X21X28X33 +X9X28X45X59 + X33X37X52X55 + X15X21X55X59 +X37X45X52X55X59 + X9X15X21X28X33 + X21X28X33X37X45X52

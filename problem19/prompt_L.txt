@@ -1,0 +1,6 @@
+// This module implements the last column operation in aes keyschedule
+module lcol(
+    input  [31:0] In,
+    input  [7:0] RC,
+    output [31:0] S
+    ); 

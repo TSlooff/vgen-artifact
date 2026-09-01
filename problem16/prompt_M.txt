@@ -1,0 +1,7 @@
+// This module implements the multiplication by 2 in the AES finite field
+module gmul2(
+    input  [7:0] In,
+    output [7:0] S
+    ); 
+// In is the 8-bit input vector interpreted as an element in GF(2)/<x^8+x^4+x^3+x+1>
+// S is the  8-bit output vector such that S=x*(In) 

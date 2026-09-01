@@ -1,0 +1,32 @@
+// This module implements the Present block cipher
+module present(
+    input [63:0] Plaintext,
+    input [79:0] Key,
+    input clk,
+    input reset,
+    output ready,
+    output [63:0] Ciphertext
+    ); 
+
+// Plaintext is the 64-bit input plaintext
+// Key is the 80-bit input key
+// clk , reset are the input clock and reset signals
+// Ciphertext is the output ciphertext
+// ready is the output signal which is set to 1 when the ciphertext computation somplete
+// when reset is low the plaintext is written on a 64-bit register Sreg
+// when reset is low the key is written on a 80-bit register Kreg
+// when reset is low a decimal up-counter is initialized to 1
+// for 31 cycles we do the following 
+//       the round function is executed on the current Sreg nad Kreg[79:16] to give the Signal T
+//       the key schedule is executed on Kreg state and the counter which is used as round constant to give the next state K
+//       the counter is incremented by 1
+// at every positive clock edge the Sreg is updated with T, Kreg with K and counter with counter +1 
+// In round 32 the ciphertext is the xor of Sreg and Kreg[79:16]
+// Init with counter = 1 , Kreg = Key , Sreg = Plaintext
+// for 31 cycles to the following
+//    1) T  = Round (Sreg, Kreg[79:16])
+//    2) K  = Keyschedule (Kreg, counter)
+//    3) countern = counter + 1
+//    4) at every poedge clock update Sreg=T, kreg=K and counter = countern
+// At counter =32 ciphertext = Sreg ^ Kreg[79:16]
+

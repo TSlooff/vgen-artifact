@@ -1,0 +1,5 @@
+// This module implements the 61-bit rotate function in the Present keyschedule
+module rotate_61(
+    input [79:0] In,
+    output [79:0] R
+    ); 

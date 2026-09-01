@@ -1,0 +1,45 @@
+// This module implements the AES block cipher
+module aes(
+    input [127:0] Plaintext,
+    input [127:0] Key,
+    input clk,
+    input reset,
+    output ready,
+    output [127:0] Ciphertext
+    );
+
+// Plaintext is the 128-bit input plaintext
+// Key is the 128-bit input key
+// clk , reset are the input clock and reset signals
+// Ciphertext is the output ciphertext
+// ready is the output signal which is set to 1 when the ciphertext computation somplete
+// when reset is low the plaintext is written on a 128-bit register Sreg
+// when reset is low the key is written on a 128-bit register Kreg
+// when reset is low a 8-bit counter is initialized to 1
+// for 9 cycles we do the following 
+//       the round function is executed on the current Sreg and Kreg to give the Signal T
+//       the key schedule is executed on Kreg state and the counter which is used as round constant to give the next state K
+//       the counter is multiplied by 2 in the AES finite field
+
+// in last cycle we do the following 
+//       the Finalround function is executed on the current Sreg and Kreg to give the Signal T
+//       the key schedule is executed on Kreg state and the counter which is used as round constant to give the next state K
+//       the counter is multiplied by 2 in the AES finite field
+
+// at every positive clock edge the Sreg is updated with T, Kreg with K and counter with counter +1 
+// In round 11 the ciphertext is the xor of Sreg and Kreg
+// Init with counter = 1 , Kreg = Key , Sreg = Plaintext
+// for 9 cycles to the following
+//    1) T  = Round (Sreg, Kreg)
+//    2) K  = Keyschedule (Kreg, counter)
+//    3) countern = gmul2(counter)
+//    4) at every posedge clock update Sreg=T, kreg=K and counter = countern
+// for last cycle to the following
+//    1) T  = Round (Sreg, Kreg)
+//    2) K  = Keyschedule (Kreg, counter)
+//    3) countern = gmul2(counter)
+//    4) at every posedge clock update Sreg=T, kreg=K and counter = countern
+
+
+// At round=11 ciphertext = Sreg ^ Kreg
+

@@ -1,0 +1,9 @@
+// This module implements the AES block cipher
+module aes(
+    input [127:0] Plaintext,
+    input [127:0] Key,
+    input clk,
+    input reset,
+    output ready,
+    output [127:0] Ciphertext
+    ); 

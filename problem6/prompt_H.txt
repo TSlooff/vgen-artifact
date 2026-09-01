@@ -1,0 +1,23 @@
+module quark(input clk, input reset, input [0:135] s, output [0:135]daout);
+// Inputs:
+// clk: clock
+// reset: reset
+// s: 136-bit value of s to perform permutation on
+// Outputs:
+// daout: 136-bit output 
+// This module implements the quark hash permutation
+// Uses the modules p, f, g, h which are defined as:
+// module p(input [0:9] L, output daout);
+// module f(input [0:67] X, output daout);
+// module g(input [0:67] Y, output daout);
+// module h(input [0:67] X, input [0:67] Y, input [0:9] L, output daout);
+// When reset == 0
+// Initialise 68-bit reg X with first 68 bits of s, initialise 68-bit reg Y with second 68 bits of s
+// Initialise 10-bit reg L with all 1's
+// When reset == 1
+// For 544 clock cycles, update states of X, Y, L using 1-bit output of modules p, f, g, h as follows:
+// X = {X[1:67], Y[0] ^ f_t ^ h_t};
+// Y = {Y[1:67], g_t ^ h_t};
+// L = {L[1:9], p_t};
+// where p_t is 1-bit output of module p, f_t is 1-bit output of module f, g_t is 1-bit output of module g, and h_t is 1-bit output of module h
+// Use counter to count clock cycles, and after 544 clock cycles stop updating states of X, Y, L

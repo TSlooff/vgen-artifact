@@ -1,0 +1,5 @@
+// This function implements the Present Sbox
+uint8_t sbox(uint8_t x) {
+// x is the 4-bit input to the S-box
+// the function returns the 4-bit output y=sbox(x) where sbox is the non-linear Substitution function used in the Present block cipher
+// the function can be expressed as the array S=[0xc,  0x5,  0x6,  0xb, 0x9,  0x0, 0xa, 0xd, 0x3, 0xe, 0xf,  0x8,  0x4,  0x7,  0x1, 0x2], so that sbox(x)=S[x]

@@ -1,0 +1,11 @@
+// This module implements the AES Shiftrow layer
+module Shiftrow(
+    input [127:0] Inp,
+    output [127:0] Oup
+    );  
+// Inp is the 128-bit input vector
+// Oup is the 128-bit output of the Shiftrow layer
+// The Inp signal is treated as a 4 * 4 byte-matrix and the i-th row of this matrix is rotated left by i bytes, for i=0,1,2,3
+// for i=0,1,2,3, the i-th row xi[31:0] = {Inp[127-8*i: 120-8*i], Inp[95-8*i: 88-8*i], Inp[63-8*i: 56-8*i], Inp[31-8*i: 24-8*i]}
+// yi  = xi <<< (8*i)
+// for i=0,1,2,3, the i-th row {Oup[127-8*i: 120-8*i], Oup[95-8*i: 88-8*i], Oup[63-8*i: 56-8*i], Oup[31-8*i: 24-8*i]}= yi[31:0]

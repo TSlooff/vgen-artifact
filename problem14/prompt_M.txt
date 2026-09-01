@@ -1,0 +1,12 @@
+// This module implements the AES Round function
+module Round(
+    input [127:0] Inp,
+    input [127:0] Rkey,
+    output [127:0] Oup
+    ); 
+// Inp is the 128-bit input to the round function
+// Rkey is the 128-bit round key
+// Oup is the 128-bit output of the round function
+// First the roundkey is xored to input, second the result is passed through the substitution layer, third the output of the substitution layer is passed through the Shiftrow layer,
+// the output of shiftrow is passed through the Mixcolumn layer
+// Oup is the output of the mixcolumn layer

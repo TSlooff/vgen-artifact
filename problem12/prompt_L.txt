@@ -1,0 +1,5 @@
+// This module implements the Present permutation layer
+module Player(
+    input [63:0] Inp,
+    output [63:0] Oup
+    ); 

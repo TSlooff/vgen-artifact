@@ -1,0 +1,9 @@
+// This module implements the Present Sbox
+module sbox(
+    input  [3:0] In,
+    output [3:0] S
+    ); 
+// In is the 4-bit input vector
+// S is the  4-bit output vector such that S=Sbox[In]
+// the function Sbox can be expressed as the following array 
+// Sbox =[ 4h'c, 4h'5, 4h'6, 4h'b, 4h'9, 4h'0, 4h'a, 4h'd, 4h'3, 4h'e, 4h'f, 4h'8, 4h'4, 4h'7, 4h'1, 4h'2 ]  

@@ -1,0 +1,2 @@
+// This function implements the Present Sbox
+uint8_t sbox(uint8_t x) {

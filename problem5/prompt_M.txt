@@ -1,0 +1,9 @@
+// This module implements the h function of the quark hash
+module h(input [0:67] X, input [0:67] Y, input [0:9] L, output daout);
+// Inputs:
+// X: 68-bit value of X
+// Y: 68-bit value of Y
+// L: 10-bit value of L
+// Outputs:
+// daout: 1-bit output 
+// The output of the module is a function of the addition and multiplication of bits 1, 4, 25, 31, 46, 55, 56 of X, bits 2, 3, 10, 43, 59 of Y, and bit 0 of L: L0 +X1 +Y2 +X4 +Y10 +X25 +X31 +Y43 +X56 +Y59 +Y3X55 + X46X55 + X55Y59 + Y3X25X46 + Y3X46X55 +Y3X46Y59 + L0X25X46Y59 + L0X25

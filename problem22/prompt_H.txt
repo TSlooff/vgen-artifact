@@ -1,0 +1,26 @@
+// This module implements the AES Sbox
+module sbox(
+    input  [7:0] In,
+    output [7:0] S
+    ); 
+// In is the 8-bit input vector
+// S is the  8-bit output vector such that S=Sbox[In]
+// the function Sbox can be expressed as the following array 
+// Sbox =[ 
+   8h'63, 8h'7C, 8h'77, 8h'7B, 8h'F2, 8h'6B, 8h'6F, 8h'C5, 8h'30, 8h'01, 8h'67, 8h'2B, 8h'FE, 8h'D7, 8h'AB, 8h'76,
+   8h'CA, 8h'82, 8h'C9, 8h'7D, 8h'FA, 8h'59, 8h'47, 8h'F0, 8h'AD, 8h'D4, 8h'A2, 8h'AF, 8h'9C, 8h'A4, 8h'72, 8h'C0,
+   8h'B7, 8h'FD, 8h'93, 8h'26, 8h'36, 8h'3F, 8h'F7, 8h'CC, 8h'34, 8h'A5, 8h'E5, 8h'F1, 8h'71, 8h'D8, 8h'31, 8h'15,
+   8h'04, 8h'C7, 8h'23, 8h'C3, 8h'18, 8h'96, 8h'05, 8h'9A, 8h'07, 8h'12, 8h'80, 8h'E2, 8h'EB, 8h'27, 8h'B2, 8h'75,
+   8h'09, 8h'83, 8h'2C, 8h'1A, 8h'1B, 8h'6E, 8h'5A, 8h'A0, 8h'52, 8h'3B, 8h'D6, 8h'B3, 8h'29, 8h'E3, 8h'2F, 8h'84,
+   8h'53, 8h'D1, 8h'00, 8h'ED, 8h'20, 8h'FC, 8h'B1, 8h'5B, 8h'6A, 8h'CB, 8h'BE, 8h'39, 8h'4A, 8h'4C, 8h'58, 8h'CF,
+   8h'D0, 8h'EF, 8h'AA, 8h'FB, 8h'43, 8h'4D, 8h'33, 8h'85, 8h'45, 8h'F9, 8h'02, 8h'7F, 8h'50, 8h'3C, 8h'9F, 8h'A8,
+   8h'51, 8h'A3, 8h'40, 8h'8F, 8h'92, 8h'9D, 8h'38, 8h'F5, 8h'BC, 8h'B6, 8h'DA, 8h'21, 8h'10, 8h'FF, 8h'F3, 8h'D2,
+   8h'CD, 8h'0C, 8h'13, 8h'EC, 8h'5F, 8h'97, 8h'44, 8h'17, 8h'C4, 8h'A7, 8h'7E, 8h'3D, 8h'64, 8h'5D, 8h'19, 8h'73,
+   8h'60, 8h'81, 8h'4F, 8h'DC, 8h'22, 8h'2A, 8h'90, 8h'88, 8h'46, 8h'EE, 8h'B8, 8h'14, 8h'DE, 8h'5E, 8h'0B, 8h'DB,
+   8h'E0, 8h'32, 8h'3A, 8h'0A, 8h'49, 8h'06, 8h'24, 8h'5C, 8h'C2, 8h'D3, 8h'AC, 8h'62, 8h'91, 8h'95, 8h'E4, 8h'79,
+   8h'E7, 8h'C8, 8h'37, 8h'6D, 8h'8D, 8h'D5, 8h'4E, 8h'A9, 8h'6C, 8h'56, 8h'F4, 8h'EA, 8h'65, 8h'7A, 8h'AE, 8h'08,
+   8h'BA, 8h'78, 8h'25, 8h'2E, 8h'1C, 8h'A6, 8h'B4, 8h'C6, 8h'E8, 8h'DD, 8h'74, 8h'1F, 8h'4B, 8h'BD, 8h'8B, 8h'8A,
+   8h'70, 8h'3E, 8h'B5, 8h'66, 8h'48, 8h'03, 8h'F6, 8h'0E, 8h'61, 8h'35, 8h'57, 8h'B9, 8h'86, 8h'C1, 8h'1D, 8h'9E,
+   8h'E1, 8h'F8, 8h'98, 8h'11, 8h'69, 8h'D9, 8h'8E, 8h'94, 8h'9B, 8h'1E, 8h'87, 8h'E9, 8h'CE, 8h'55, 8h'28, 8h'DF,
+   8h'8C, 8h'A1, 8h'89, 8h'0D, 8h'BF, 8h'E6, 8h'42, 8h'68, 8h'41, 8h'99, 8h'2D, 8h'0F, 8h'B0, 8h'54, 8h'BB, 8h'16
+         ]  

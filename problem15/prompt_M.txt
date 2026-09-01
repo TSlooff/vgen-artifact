@@ -1,0 +1,11 @@
+// This module implements the AES 10th and final Round function
+module Finalround(
+    input [127:0] Inp,
+    input [127:0] Rkey,
+    output [127:0] Oup
+    ); 
+// Inp is the 128-bit input to the final round function
+// Rkey is the 128-bit round key
+// Oup is the 128-bit output of the final round function
+// First the roundkey is xored to input, second the result is passed through the substitution layer, third the output of the substitution layer is passed through the Shiftrow layer,
+// Oup is the output of the Shiftrow layer

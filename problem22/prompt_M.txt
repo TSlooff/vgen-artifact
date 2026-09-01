@@ -1,0 +1,7 @@
+// This module implements the AES Sbox
+module sbox(
+    input  [7:0] In,
+    output [7:0] S
+    ); 
+// In is the 8-bit input vector
+// S is the  8-bit output vector such that S=Sbox(In)

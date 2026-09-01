@@ -1,0 +1,8 @@
+// This module implements the Present permutation layer
+module Player(
+    input [63:0] Inp,
+    output [63:0] Oup
+    ); 
+// Inp is the 64-bit input vector to the permutation layer
+// Oup is the 64-bit output of the permutation layer where the i-th bit of Inp is shifted to the P[i]-th bit of Oup, where P is a bijection in [0,63] to [0,63]
+// Mathematically Oup[ P[i] ] = Inp[i] 

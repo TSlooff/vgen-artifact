@@ -1,0 +1,5 @@
+// This module implements the Present Sbox
+module sbox(
+    input  [3:0] In,
+    output [3:0] S
+    ); 

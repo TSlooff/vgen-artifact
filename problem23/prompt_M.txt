@@ -1,0 +1,12 @@
+// This module implements the AES Mixcolumn layer
+ module Mixcolumn(
+    input [127:0] Inp,
+    output [127:0] Oup
+    );  
+// Inp is the 128-bit input vector
+// Oup is the 128-bit output of the mixcolumn layer
+// The Inp signal is treated as a 4 * 4 byte-matrix and each column of this matrix is multiplied with the MDS matrix M over the AES field 
+// M = [2 3 1 1]
+//     [1 2 3 1]
+//     [1 1 2 3]
+//     [3 1 1 2]  

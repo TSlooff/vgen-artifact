@@ -1,0 +1,11 @@
+// This module implements the Present Round function
+module Round(
+    input [63:0] Inp,
+    input [63:0] Rkey,
+    output [63:0] Oup
+    ); 
+// Inp is the 64-bit input to the round function
+// Rkey is the 64-bit round key
+// Oup is the 64-bit output of the round function
+// First the roundkey is xored to input, second the result is passed through the substitution layer, third the output of the substitution layer is passed through the permutation layer
+// Oup is the output of the permutation layer

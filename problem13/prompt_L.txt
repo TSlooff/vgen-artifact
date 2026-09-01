@@ -1,0 +1,9 @@
+// This module implements the Present block cipher
+module present(
+    input [63:0] Plaintext,
+    input [79:0] Key,
+    input clk,
+    input reset,
+    output ready,
+    output [63:0] Ciphertext
+    ); 
